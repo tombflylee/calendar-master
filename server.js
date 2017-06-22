@@ -21,7 +21,7 @@ app.use(webpackDevMiddleware(compiler,{
 app.use(webpackHotMiddleware(compiler));// webpack-dev-middleware的配置
 
 app.get('*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, './app/index.html'));// path.resolve 类似于cd命令，./:当前目录
+  res.sendFile(path.resolve(__dirname, './backmanage/index.html'));// path.resolve 类似于cd命令，./:当前目录
 });
 
 app.listen(port, function(error) {

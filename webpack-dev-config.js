@@ -5,11 +5,11 @@ module.exports = {
   'react-hot-loader/patch',
   'webpack-hot-middleware/client?reload=true',// webpack-hot-middleware的配置
     // 这里reload=true的意思是，如果碰到不能hot reload的情况，就整页刷新。
-  './app/index.js'
+  './backmanage/index.js'
   ],
 
   output: {
-    path: path.resolve(__dirname,'./app'),
+    path: path.resolve(__dirname,'./backmanage'),
     filename: 'bundle.js',
     publicPath: '/assets/'
   },
@@ -25,7 +25,7 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      include: path.resolve(__dirname,'node_modules'),
+      include: path.resolve(__dirname),
       use: [
         {
           loader: 'style-loader'
@@ -39,22 +39,24 @@ module.exports = {
         }
       ]
     },
-    {
-      test: /\.scss$/,
-      include: path.resolve(__dirname,'app'),
-      use:[
-        {
-          loader:'style-loader'
-        },
-        {
-          loader:'css-loader',
-          options: {importLoaders: 1}
-        },
-        {
-          loader:'postcss-loader'
-        }
-      ]
-    }
+    // {
+    //   test: /\.scss$/,
+    //   include: path.resolve(__dirname,'node_modules'),
+    //   use:[
+    //     {
+    //       loader:'style-loader'
+    //     },
+    //     {
+    //       loader:'css-loader',
+    //       options: {importLoaders: 1}
+    //     },
+    //     {
+    //       loader:'postcss-loader'
+    //     },{
+    //       loader:'sass-loader'
+    //     }
+    //   ]
+    // }
   ]
   },
   plugins: [// webpack-hot-middleware需要的配置
